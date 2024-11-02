@@ -1,0 +1,185 @@
+/* Body and Background */
+body {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1, #ffd1ff);
+    background-size: 400% 400%;
+    animation: gradientBackground 15s ease infinite;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+/* Greeting Section */
+.greeting {
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(-30px); /* Initial position above */
+    animation: fadeDown 1.5s ease forwards; /* Apply fade-down animation */
+    animation-delay: 0.3s; /* Delay to begin after page load */
+}
+
+/* Fade-Down Animation */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px); /* Start position */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End position */
+    }
+}
+/* Greeting Section */
+.greeting {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Individual Line Animation */
+.greeting-line {
+    display: block; /* Ensures each line animates separately */
+    opacity: 0;
+    transform: translateY(-30px); /* Initial position above */
+    animation: fadeDownStaggered 1s ease forwards; /* Apply fade-down animation */
+}
+
+/* Stagger the animation for each line */
+.greeting-line:nth-child(1) {
+    animation-delay: 0.3s; /* Delay for the first line */
+}
+
+.greeting-line:nth-child(2) {
+    animation-delay: 0.6s; /* Delay for the second line */
+}
+
+.greeting-line:nth-child(3) {
+    animation-delay: 0.9s; /* Delay for the third line */
+}
+
+/* Fade-Down Animation for Staggered Lines */
+@keyframes fadeDownStaggered {
+    from {
+        opacity: 0;
+        transform: translateY(-30px); /* Start position above */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End position */
+    }
+}
+
+
+
+/* Greeting Section */
+/* .greeting {
+    text-align: center;
+    margin-bottom: 30px;
+} */
+
+/* Section Titles */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    animation: fadeInContainer 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+/* Individual Section Title */
+.section-title {
+    font-size: 1.5em;
+    color: #fff;
+    cursor: pointer;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.3s, background-color 0.3s;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Adding a delay to each section title */
+.section-title:nth-child(1) { animation-delay: 1s; }
+.section-title:nth-child(2) { animation-delay: 1.2s; }
+.section-title:nth-child(3) { animation-delay: 1.4s; }
+.section-title:nth-child(4) { animation-delay: 1.6s; }
+
+.section-title:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-5px);
+}
+
+/* Content Popups */
+.content-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.content-popup.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInContainer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Gradient Animation */
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
